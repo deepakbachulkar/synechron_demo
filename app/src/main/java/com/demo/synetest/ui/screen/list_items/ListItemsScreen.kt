@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,7 +38,10 @@ fun ListItemsScreen(viewModel: ListItemsViewModel, onClickShow: (String)-> Unit)
         viewModel.getListItem()
     }
 
-    Surface {
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        shape = MaterialTheme.shapes.medium,
+    ) {
         Column(modifier = Modifier.fillMaxWidth().fillMaxWidth()) {
             if(itemsFlow.isEmpty())
                 Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
@@ -61,7 +66,7 @@ fun ListItemsScreen(viewModel: ListItemsViewModel, onClickShow: (String)-> Unit)
 
 @Composable
 fun ListItem(item: Item,  onClickShow: (String)-> Unit) {
-    Card() {
+    Card {
         Column( modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)

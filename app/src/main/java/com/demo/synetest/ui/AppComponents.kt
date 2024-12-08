@@ -57,7 +57,7 @@ fun ValueText(text: String) {
     Text(
         text = text.capitalizeWords(),
         fontWeight = FontWeight.ExtraBold,
-        color = Color.DarkGray,
+        color = Color.White,
         fontStyle = FontStyle.Normal,
         fontSize = 16.sp
     )
